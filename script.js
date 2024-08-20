@@ -48,7 +48,7 @@ $(function() {
         event.preventDefault(); // Prevent the default form submission
 
         var poNumber = document.getElementById('po-number').value;
-        var orderDetails = `PO Number: ${poNumber}\n\n`;
+        var orderDetails = ``;
 
         // Collect order details from the table
         var rows = document.querySelectorAll('table tr');
@@ -58,6 +58,7 @@ $(function() {
                 var item = cells[0].innerText;
                 var quantityInput = cells[1].querySelector('input');
                 var quantity = quantityInput ? quantityInput.value : 0;
+                var price = cells[2] ? cells[2].innerText : '';
 
                 orderDetails += `${item}, Quantity: ${quantity}\n`;
             }
@@ -74,9 +75,6 @@ $(function() {
         orderDetails += `\nSubtotal: €${subtotal}\nVAT (23%): €${vat}\nTotal: €${total}`;
 
         document.getElementById('order-details').value = orderDetails;
-        document.getElementById('subtotal').value = subtotal;
-        document.getElementById('vat').value = vat;
-        document.getElementById('total').value = total;
 
         // Log the values to ensure they are set correctly
         console.log('PO Number:', poNumber);
