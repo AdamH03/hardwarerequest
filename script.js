@@ -9,22 +9,28 @@ $(function() {
 
     $(".quantity input").on("input", function() {
         var allInputs = document.getElementsByName('qty'),
-            total = 0;
+            subtotal = 0;
 
         for(var i = 0; i < allInputs.length; i++) {
             if(parseFloat(allInputs[i].value)) {
-                total += parseFloat(allInputs[i].value) * parseFloat(allInputs[i].parentElement.nextElementSibling.firstElementChild.innerHTML);
+                subtotal += parseFloat(allInputs[i].value) * parseFloat(allInputs[i].parentElement.nextElementSibling.firstElementChild.innerHTML);
             }
         }
 
-        if (isNaN(total)) {
-            $(".number").text("Enter a valid Quantity");
+        if (isNaN(subtotal)) {
+            $(".subtotal-number .number").text("Enter a valid Quantity");
             $(".currency-sign").fadeOut();
             $("input").not($(this)).attr("disabled", "disabled");
         } else {
             $("input").removeAttr("disabled");
             $(".currency-sign").fadeIn();
-            $(".number").text(total.toFixed(2));
+            $(".subtotal-number .number").text(subtotal.toFixed(2));
+
+            var vat = subtotal * 0.23;
+            $(".vat-number .number").text(vat.toFixed(2));
+
+            var total = subtotal + vat;
+            $(".total-number .number").text(total.toFixed(2));
         }
     });
 
