@@ -35,7 +35,7 @@ This project is a simple webpage for submitting computer hardware order requests
 ### Configuration
 
 1. **Formspree Endpoint**:
-    - Replace **`YOUR_FORMSPREE_ENDPOINT`** in the **`index.html`** file with your actual Formspree endpoint URL.
+    - Replace **`https://formspree.io/f/xovanbje`** in the **`index.html`** file with your actual Formspree endpoint URL.
 
 ### Usage
 
@@ -58,9 +58,3 @@ This project is a simple webpage for submitting computer hardware order requests
     - Modify **`style.css`** to change the appearance of the webpage.
 - **JavaScript**:
     - Modify **`script.js`** to change the behavior of the dynamic calculations and form submission.
-
-### Troubleshooting
-
-- **Form Submissions Going to Spam**:
-    - Ensure your email address is verified in Formspree.
-    - Customize your email template in Formspree to avoid spam triggers.
