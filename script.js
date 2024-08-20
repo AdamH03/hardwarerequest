@@ -44,6 +44,26 @@ $(function() {
         }
     });
 
+    // Enable/Disable Submit Button Based on PO Number Input
+    $('#po-number').on('input', function() {
+        var poNumber = $(this).val();
+        var submitButton = $('#submit-order');
+
+        if (poNumber.trim() === '') {
+            submitButton.prop('disabled', true);
+            submitButton.css({
+                'background-color': '#ccc',
+                'cursor': 'not-allowed'
+            });
+        } else {
+            submitButton.prop('disabled', false);
+            submitButton.css({
+                'background-color': '#1d3557',
+                'cursor': 'pointer'
+            });
+        }
+    });
+
     document.getElementById('order-form').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission
 
