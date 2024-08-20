@@ -12,7 +12,7 @@ table {
   margin: 100px auto;
 }
 
-table tr th{
+table tr th {
   background-color: #1d3557;
   color: #fff;
   width: 250px;
@@ -50,14 +50,14 @@ table tr td.price {
   font-weight: bold;
 }
 
-table tr td.total-text {
+table tr td.total-text, table tr td.subtotal-text, table tr td.vat-text {
   background-color: #adb5bd;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
 }
 
-table tr td.total-number {
+table tr td.total-number, table tr td.subtotal-number, table tr td.vat-number {
   font-size: 18px;
   font-weight: bold;
   text-align: center;
@@ -65,15 +65,15 @@ table tr td.total-number {
   justify-content: center;
 }
 
-table tr td.total-number .number {
+table tr td.total-number .number, table tr td.subtotal-number .number, table tr td.vat-number .number {
   min-width: 200px;
   height: 40px;
   background-color: #e8eddf;
-  border-radius: 10px;
+  border-radius: 5px;
   line-height: 2;
 }
 
-table tr td.total-number .dollar-sign { 
+table tr td.total-number .currency-sign, table tr td.subtotal-number .currency-sign, table tr td.vat-number .currency-sign { 
   padding-top: 10px;
   margin-left: 10px;
 }
