@@ -43,4 +43,49 @@ $(function() {
             $(this).parent().parent().prev().find("input").focus();
         }
     });
+
+    document.getElementById('order-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        var poNumber = document.getElementById('po-number').value;
+        var orderDetails = `PO Number: ${poNumber}\n\n`;
+
+        // Collect order details from the table
+        var rows = document.querySelectorAll('table tr');
+        rows.forEach(function(row, index) {
+            var cells = row.querySelectorAll('td');
+            if (cells.length > 0 && index < rows.length - 3) { // Skip the last three rows (Subtotal, VAT, Total)
+                var item = cells[0].innerText;
+                var quantityInput = cells[1].querySelector('input');
+                var quantity = quantityInput ? quantityInput.value : 0;
+
+                orderDetails += `${item}, Quantity: ${quantity}\n`;
+            }
+        });
+
+        var subtotalElement = document.querySelector('.subtotal-number .number');
+        var vatElement = document.querySelector('.vat-number .number');
+        var totalElement = document.querySelector('.total-number .number');
+
+        var subtotal = subtotalElement ? subtotalElement.innerText : '0';
+        var vat = vatElement ? vatElement.innerText : '0';
+        var total = totalElement ? totalElement.innerText : '0';
+
+        orderDetails += `\nSubtotal: €${subtotal}\nVAT (23%): €${vat}\nTotal: €${total}`;
+
+        document.getElementById('order-details').value = orderDetails;
+        document.getElementById('subtotal').value = subtotal;
+        document.getElementById('vat').value = vat;
+        document.getElementById('total').value = total;
+
+        // Log the values to ensure they are set correctly
+        console.log('PO Number:', poNumber);
+        console.log('Order Details:', orderDetails);
+        console.log('Subtotal:', subtotal);
+        console.log('VAT:', vat);
+        console.log('Total:', total);
+
+        // Submit the form programmatically after setting the values
+        event.target.submit();
+    });
 });
