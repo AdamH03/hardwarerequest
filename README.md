@@ -22,16 +22,6 @@ This project is a simple webpage for submitting computer hardware order requests
 - A web browser (e.g., Chrome, Firefox, Safari)
 - Internet connection
 
-### Installation
-
-1. **Clone the Repository**:
-    
-    `git clone https://github.com/yourusername/hardware-order-request.git
-    cd hardware-order-request`
-    
-2. **Open the Webpage**:
-    - Open **`index.html`** in your web browser.
-
 ### Configuration
 
 1. **Formspree Endpoint**:
