@@ -75,7 +75,7 @@ $(function() {
             if (cells.length > 0 && index < rows.length - 3) { // Skip the last three rows (Subtotal, VAT, Total)
                 var item = cells.eq(0).text();
                 var quantityInput = cells.eq(1).find('input');
-                var quantity = quantityInput ? quantityInput.val() : 0;
+                var quantity = quantityInput && quantityInput.val() ? quantityInput.val() : 0;
                 var price = cells.eq(2).text();
 
                 orderDetails += `${item}, Quantity: ${quantity}\n`;
@@ -88,7 +88,7 @@ $(function() {
 
         orderDetails += `\nSubtotal: €${subtotal}\nVAT (23%): €${vat}\nTotal: €${total}`;
 
-        var mailtoLink = `mailto:aherron@clarecoco.ie?subject=New Hardware Request&body=PO Number: ${poNumber}%0A%0AOrder Details:%0A${orderDetails.replace(/\n/g, '%0A')}`;
+        var mailtoLink = `mailto:aherron@clarecoco.ie?subject=Computer Hardware Order Request&body=PO Number: ${poNumber}%0A%0AOrder Details:%0A${orderDetails.replace(/\n/g, '%0A')}`;
         window.location.href = mailtoLink;
     });
 });
