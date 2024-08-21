@@ -1,50 +1,50 @@
 # Computer Hardware Order Request Webpage
 
-This project is a simple webpage for submitting computer hardware order requests. It allows users to input quantities for various hardware items, calculates the subtotal, VAT, and total, and submits the order details via a form.
+This project is a web-based form for submitting computer hardware order requests. It allows users to input quantities for various hardware items, calculates the subtotal, VAT, and total cost, and generates an email with the order details.
+
+## Table of Contents
+
+- Installation
+- Usage
+- Files
+- Features
+- Contributing
+- License
+
+## Installation
+
+1. Clone the repository to your local machine:
+    
+    `git clone https://github.com/yourusername/hardware-request.git`
+    
+2. Navigate to the project directory:
+    
+    `cd hardware-request`
+    
+
+## Usage
+
+1. Open **`index.html`** in your web browser.
+2. Enter the quantities for the desired hardware items.
+3. Enter the Purchase Order (PO) number.
+4. Click the “Submit Order” button to generate an email with the order details.
+
+## Files
+
+- **`index.html`**: The main HTML file containing the structure of the form.
+- **`style.css`**: The CSS file for styling the form.
+- **`script.js`**: The JavaScript file for handling form interactions and calculations.
 
 ## Features
 
-- **Responsive Design**: The webpage is designed to be responsive and user-friendly.
-- **Dynamic Calculations**: Automatically calculates the subtotal, VAT, and total based on user input.
-- **Form Submission**: Submits the order details, including a PO number, to a specified endpoint using Formspree.
+- **Dynamic Quantity Input**: Users can input quantities for various hardware items.
+- **Automatic Calculations**: The form calculates the subtotal, VAT (23%), and total cost based on the input quantities.
+- **Email Generation**: The form generates an email with the order details, including the PO number, item descriptions, quantities, and costs.
 
-## Technologies Used
+## Contributing
 
-- **HTML**: Structure of the webpage.
-- **CSS**: Styling of the webpage.
-- **JavaScript (jQuery)**: Dynamic calculations and form submission.
-- **Formspree**: Handling form submissions.
+Contributions are welcome! Please fork the repository and submit a pull request with your changes.
 
-## Setup and Usage
+## License
 
-### Prerequisites
-
-- A web browser (e.g., Chrome, Firefox, Safari)
-- Internet connection
-
-### Configuration
-
-1. **Formspree Endpoint**:
-    - Replace **`https://formspree.io/f/xovanbje`** in the **`index.html`** file with your actual Formspree endpoint URL.
-
-### Usage
-
-1. **Enter Quantities**:
-    - Input the quantities for the desired hardware items in the provided fields.
-2. **Enter PO Number**:
-    - Enter the Purchase Order (PO) number in the designated field.
-3. **Submit the Form**:
-    - Click the “Submit Order” button to submit the order details.
-
-### Files
-
-- **`index.html`**: Main HTML file containing the structure of the webpage.
-- **`style.css`**: CSS file for styling the webpage.
-- **`script.js`**: JavaScript file for dynamic calculations and form submission.
-
-### Customization
-
-- **Styling**:
-    - Modify **`style.css`** to change the appearance of the webpage.
-- **JavaScript**:
-    - Modify **`script.js`** to change the behavior of the dynamic calculations and form submission.
+This project is licensed under the MIT License. See the LICENSE file for details.
