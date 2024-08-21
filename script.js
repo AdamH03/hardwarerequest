@@ -64,46 +64,31 @@ $(function() {
         }
     });
 
-    document.getElementById('order-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        var poNumber = document.getElementById('po-number').value;
+    $('#submit-order').on('click', function() {
+        var poNumber = $('#po-number').val();
         var orderDetails = ``;
 
         // Collect order details from the table
-        var rows = document.querySelectorAll('table tr');
-        rows.forEach(function(row, index) {
-            var cells = row.querySelectorAll('td');
+        var rows = $('table tr');
+        rows.each(function(index, row) {
+            var cells = $(row).find('td');
             if (cells.length > 0 && index < rows.length - 3) { // Skip the last three rows (Subtotal, VAT, Total)
-                var item = cells[0].innerText;
-                var quantityInput = cells[1].querySelector('input');
-                var quantity = quantityInput ? quantityInput.value : 0;
-                var price = cells[2] ? cells[2].innerText : '';
+                var item = cells.eq(0).text();
+                var quantityInput = cells.eq(1).find('input');
+                var quantity = quantityInput ? quantityInput.val() : 0;
+                var price = cells.eq(2).text();
 
                 orderDetails += `${item}, Quantity: ${quantity}\n`;
             }
         });
 
-        var subtotalElement = document.querySelector('.subtotal-number .number');
-        var vatElement = document.querySelector('.vat-number .number');
-        var totalElement = document.querySelector('.total-number .number');
-
-        var subtotal = subtotalElement ? subtotalElement.innerText : '0';
-        var vat = vatElement ? vatElement.innerText : '0';
-        var total = totalElement ? totalElement.innerText : '0';
+        var subtotal = $('.subtotal-number .number').text();
+        var vat = $('.vat-number .number').text();
+        var total = $('.total-number .number').text();
 
         orderDetails += `\nSubtotal: €${subtotal}\nVAT (23%): €${vat}\nTotal: €${total}`;
 
-        document.getElementById('order-details').value = orderDetails;
-
-        // Log the values to ensure they are set correctly
-        console.log('PO Number:', poNumber);
-        console.log('Order Details:', orderDetails);
-        console.log('Subtotal:', subtotal);
-        console.log('VAT:', vat);
-        console.log('Total:', total);
-
-        // Submit the form programmatically after setting the values
-        event.target.submit();
+        var mailtoLink = `mailto:aherron@clarecoco.ie?subject=New Hardware Request&body=PO Number: ${poNumber}%0A%0AOrder Details:%0A${orderDetails.replace(/\n/g, '%0A')}`;
+        window.location.href = mailtoLink;
     });
 });
