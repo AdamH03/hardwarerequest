@@ -74,10 +74,13 @@
             <td class="total-number"><span class="number">0</span><span class="currency-sign">€</span></td>
         </tr>
     </table>
-    <form id="order-form" action="https://formspree.io/f/xovanbje" method="POST" style="text-align: center; margin: 20px;">
-        <input type="text" name="PO Number" id="po-number" placeholder="Enter PO Number" style="padding: 10px; font-size: 16px; border-radius: 5px;">
-        <input type="hidden" name="Order Details" id="order-details">
-        <button id="submit-order" type="submit" style="padding: 10px 20px; font-size: 16px; background-color: #ccc; color: #fff; border: none; border-radius: 5px; cursor: not-allowed;" disabled>Submit Order</button>
+    <form id="order-form" style="text-align: center; margin: 20px;">
+        <input type="text" name="poNumber" id="po-number" placeholder="Enter PO Number" style="padding: 10px; font-size: 16px; border-radius: 5px;">
+        <input type="hidden" name="orderDetails" id="order-details">
+        <input type="hidden" name="subtotal" id="subtotal">
+        <input type="hidden" name="vat" id="vat">
+        <input type="hidden" name="total" id="total">
+        <button id="submit-order" type="button" style="padding: 10px 20px; font-size: 16px; background-color: #ccc; color: #fff; border: none; border-radius: 5px; cursor: not-allowed;" disabled>Submit Order</button>
     </form>
     <script src="script.js"></script>
 </body>
